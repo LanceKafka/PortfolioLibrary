@@ -1,0 +1,8 @@
+# Apache 2.4 (XAMPP). Keeps secrets and source folders unreachable from the browser.
+Options -Indexes
+<FilesMatch "^(\.env.*|\.git.*|composer\.(json|lock)|README\.md)$">
+    Require all denied
+</FilesMatch>
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+</IfModule>
